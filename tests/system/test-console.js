@@ -1,10 +1,11 @@
-import fs from "fs";
-import {TUI} from "./tui"
-import seedrandom from "seedrandom"
-import {Random} from "../consistency/lib/Random"
-import {IncConsistencyChecker} from "../consistency/lib/clients/IncConsistencyChecker"
-import {IncClient} from "./IncClient"
-import {isProposeNoError, isAcceptUnknownError, isConcurrentNoError, getErrorChecker} from "../consistency/lib/clients/exceptions"
+const fs = require("fs");
+const seedrandom = require("seedrandom");
+
+const {TUI} = require("./tui");
+const {IncClient} = require("./IncClient");
+const {Random} = require("gryadka/tests/consistency/lib/Random");
+const {IncConsistencyChecker} = require("gryadka/tests/consistency/lib/clients/IncConsistencyChecker");
+const {isProposeNoError, isAcceptUnknownError, isConcurrentNoError, getErrorChecker} = require("gryadka/tests/consistency/lib/clients/exceptions");
 
 const isVersionConflict = getErrorChecker("NO", ["ERRNO011", "ERRNO005"])
 const isTimeouted = getErrorChecker("UNKNOWN", ["ERRNO001"]);

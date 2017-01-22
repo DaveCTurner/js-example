@@ -1,7 +1,5 @@
-import fs from "fs";
-
-
-import mustache from "mustache";
+const fs = require("fs");
+const mustache = require("mustache");
 
 class RedisEtcWriter {
     constructor(redisTemplatePath, deploymentPath) {

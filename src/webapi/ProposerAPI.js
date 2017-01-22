@@ -1,6 +1,6 @@
-import request from "request";
+const request = require("request");
 
-export function changeQuery(proposerUrl, key, changeName, changeArgs, queryName, queryArgs, timeout, extra) {
+exports.changeQuery = function(proposerUrl, key, changeName, changeArgs, queryName, queryArgs, timeout, extra) {
     return new Promise((resolve, reject) => {
         request(
             {

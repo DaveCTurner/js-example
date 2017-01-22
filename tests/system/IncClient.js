@@ -1,8 +1,8 @@
-import {loopOnError, retryOnError, isRetryCountExceedError} from "../consistency/lib/clients/exceptions";
-import {changeQuery} from "../../src/webapi/ProposerAPI"
-import unwrapOk from "../consistency/lib/clients/unwrapOk"
+const {changeQuery} = require("../../src/webapi/ProposerAPI");
+const {loopOnError, retryOnError, isRetryCountExceedError} = require("gryadka/tests/consistency/lib/clients/exceptions");
+const {unwrapOk} = require("gryadka/tests/consistency/lib/clients/unwrapOk");
 
-export class IncClient {
+class IncClient {
     static spawn({ctx, consistencyChecker, proposerUrls, keys, recoverableErrors}) {
         const c1 = new IncClient(ctx, consistencyChecker, [...proposerUrls], keys, recoverableErrors);
         c1.thread = c1.start();
@@ -113,3 +113,5 @@ export class IncClient {
         this.conditions = new Set([...this.conditions].filter(x => !executed.has(x)));
     }
 }
+
+exports.IncClient = IncClient;

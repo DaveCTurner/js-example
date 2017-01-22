@@ -1,7 +1,6 @@
-var blessed = require('blessed');
+const blessed = require('blessed');
  
-
-export class TUI {
+class TUI {
     constructor() {
         this.CMD = "CMD: "
         this.clients = [];
@@ -133,14 +132,4 @@ export class TUI {
     }
 }
 
-
-
-// const tui = new TUI();
-
-// const handler = tui.addclient({title: "c0", isactive: true, tries: 847, writes: 42});
-// tui.addclient({title: "c1", isactive: false, tries: 531, writes: 22});
-// tui.onInput(msg => tui.log(msg));
-
-// setTimeout(function() {
-//    handler.updateState(1379, 73); 
-// }, 2000);
+exports.TUI = TUI;

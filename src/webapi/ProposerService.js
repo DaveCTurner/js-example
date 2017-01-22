@@ -1,12 +1,12 @@
-import Cache from "../paxos/Cache";
-import AcceptorClient from "../paxos/AcceptorClient";
-import Proposer from "../paxos/Proposer";
-import redisAsyncClient from "../paxos/utils/redisAsyncClient";
+const {Cache} = require("gryadka/src/paxos/Cache");
+const {AcceptorClient} = require("gryadka/src/paxos/AcceptorClient");
+const {Proposer} = require("gryadka/src/paxos/Proposer");
+const {redisAsyncClient} = require("gryadka/src/paxos/utils/redisAsyncClient");
 
-import express from "express";
-import bodyParser from "body-parser";
+const express = require("express");
+const bodyParser = require("body-parser");
 
-export class ProposerService {
+class ProposerService {
     async start(settings) {
         const cache = new Cache(settings.id);
         this.acceptors = settings.acceptors.map(x => new AcceptorClient(x));
@@ -21,12 +21,16 @@ export class ProposerService {
         const router = express.Router();
 
         router.route("/change").post(function(req, res) {
-            var change = require("./mutators/" + req.body.change.name)(req.body.change.args);
-            var query = require("./mutators/" + req.body.query.name)(req.body.query.args);
+            try {
+                var change = require("./mutators/" + req.body.change.name)(req.body.change.args);
+                var query = require("./mutators/" + req.body.query.name)(req.body.query.args);
 
-            proposer.changeQuery(req.body.key, change, query, req.body.extra).then(x => {
-                res.json(x);
-            });
+                proposer.changeQuery(req.body.key, change, query, req.body.extra).then(x => {
+                    res.json(x);
+                });
+            } catch (e) {
+                console.info(e);
+            }
         });
 
         app.use('/', router);
@@ -42,3 +46,5 @@ export class ProposerService {
         this.server.close();
     }
 }
+
+exports.ProposerService = ProposerService;
