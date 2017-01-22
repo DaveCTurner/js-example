@@ -12,7 +12,7 @@
     "seedrandom": "2.4.2",
     "mustache": "2.3.0",
     "blessed": "0.1.81",
-    "gryadka": "../js"
+    "gryadka": "1.61.8"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
