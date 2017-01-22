@@ -1,4 +1,4 @@
-const {log, msg} = require("gryadka/src/paxos/utils/Logging");
+const {log, msg} = require("gryadka/src/utils/Logging");
 
 module.exports = function (x) {
     return function (state) {

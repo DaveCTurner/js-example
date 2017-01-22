@@ -1,7 +1,7 @@
-const {Cache} = require("gryadka/src/paxos/Cache");
-const {AcceptorClient} = require("gryadka/src/paxos/AcceptorClient");
-const {Proposer} = require("gryadka/src/paxos/Proposer");
-const {redisAsyncClient} = require("gryadka/src/paxos/utils/redisAsyncClient");
+const {Cache} = require("gryadka/src/Cache");
+const {AcceptorClient} = require("gryadka/src/AcceptorClient");
+const {Proposer} = require("gryadka/src/Proposer");
+const {redisAsyncClient} = require("gryadka/src/utils/redisAsyncClient");
 
 const express = require("express");
 const bodyParser = require("body-parser");
