@@ -1,7 +1,7 @@
 {
-  "name": "gryadka",
+  "name": "gryadka-example",
   "version": "1.0.0",
-  "description": "A minimalistic (<500 lines of code) Paxos layer on top of Redis nodes turning them into a distributed consistent key/value storage",
+  "description": "An example of using Gryadka to create web api and its end-to-end testing",
   "main": "index.js",
   "dependencies": {
     "express": "4.14.0",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rystsov/gryadka.git"
+    "url": "git@github.com:gryadka/js-example.git"
   },
   "keywords": [
     "paxos",
@@ -28,7 +28,7 @@
   "author": "Denis Rystsov",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rystsov/gryadka/issues"
+    "url": "https://github.com/gryadka/js-example/issues"
   },
-  "homepage": "https://github.com/rystsov/gryadka#readme"
+  "homepage": "https://github.com/gryadka/js-example/blob/master/README.md"
 }
